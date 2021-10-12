@@ -1,0 +1,9 @@
+# Add documentation: I don't use add_data_dir and add_data_file in setup.py
+# since I don't want to include this at installation , only sdist-generated tarballs
+recursive-include documentation/source *
+recursive-include documentation/build *
+include documentation/make.bat
+include documentation/Makefile
+
+# Add examples folder, only in sdist-generated tarballs
+recursive-include icons *
