@@ -1,21 +1,3 @@
-MAJOR = 2
-MINOR = 0
-MICRO = 'dev'
-
-dev_labels = ['dev', 'alpha', 'beta']
-
-if isinstance(MICRO, str):
-    if MICRO in dev_labels:
-        version = '{:d}.{:d}{:s}'.format(MAJOR, MINOR, MICRO)
-    elif MICRO not in dev_labels:
-        version = '{:d}.{:d}.{:s}'.format(MAJOR, MINOR, MICRO)
-
-elif isinstance(MICRO, int):
-    version = '{:d}.{:d}.{:d}'.format(MAJOR, MINOR, MICRO)
-
-author = "M. Skocic"
-__author__ = 'M. Skocic'
-
 __all__ = ['__package_name__',
            '__version__',
            '__author__',
