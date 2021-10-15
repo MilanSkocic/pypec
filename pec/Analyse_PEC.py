@@ -7,16 +7,17 @@ import os
 import sys
 import datetime
 import shutil
+import pathlib
+
 import numpy as np
 from scipy.constants import h, e, c
 
 from .Parallel_Process import PlotSummaryProcess, initialize_processes, start_processes, get_cpu_number, get_queue
 from . import iph_functions
+from . import version
 
 from tkinter import *
 from tkinter import filedialog, messagebox
-
-from . import version
 
 from matplotlib.figure import Figure
 import matplotlib.lines as lines
@@ -35,9 +36,6 @@ set_plotstyle()
 tkFileDialog = filedialog
 tkMessageBox = messagebox
 izip = zip
-
-__version__ = version.version
-__author__ = version.author
 
 # CONSTANTS
 HV_COEF = h * c / (1e-9 * e)
@@ -170,8 +168,9 @@ class Analyse_PEC(Frame):
         # GUI
         Frame.__init__(self, master)
         self.pack(expand=YES, fill=BOTH)
-        self.master.title('PEC Fitting - {0:s} - Running in Python {1:s}'.format(__version__, sys.version))
-        # self.master.iconbitmap(os.path.abspath('./Icons/icon.ico'))
+        self.master.title('PEC Fitting - {0:s} - Running in Python {1:s}'.format(version.__version__, sys.version))
+        folder = pathlib.Path(__file__).parent
+        self.master.iconphoto(True, PhotoImage(file=folder / 'icon.png'))
         self.master.protocol("WM_DELETE_WINDOW", self.ask_quit)
 
         # get screen width and height
