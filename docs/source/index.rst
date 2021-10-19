@@ -6,10 +6,6 @@
 Welcome to PyPEC's documentation!
 =================================
 
-This an introduction to the PyPEC package.
-
-Contents:
-
 .. toctree::
    :titlesonly:
    :maxdepth: 1
