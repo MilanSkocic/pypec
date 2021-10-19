@@ -1,0 +1,20 @@
+Graphical FrontEnd
+==================
+.. currentmodule:: pec.Analyse_PEC
+.. automodule:: pec.Analyse_PEC
+	:members:
+	:undoc-members:
+
+Iph Functions
+==================
+.. currentmodule:: pec.iph_functions
+.. automodule:: pec.iph_functions
+	:members:
+	:undoc-members:
+
+Parallel Processes
+==================
+.. currentmodule:: pec.Parallel_Process
+.. automodule:: pec.Parallel_Process
+	:members:
+	:undoc-members:
