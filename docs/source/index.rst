@@ -12,9 +12,12 @@ Contents:
 
 .. toctree::
    :titlesonly:
+   :maxdepth: 1
    
-   Tutorial
-   CodeDoc
+   introduction/index.rst
+   tutorials/index.rst
+   releases/index.rst
+   autodoc/index.rst
    
 Indices and tables
 ==================
