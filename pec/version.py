@@ -8,7 +8,7 @@ __all__ = ['__package_name__',
            '__license__']
 
 __package_name__ = "PyPEC3"
-__version__ = "2.0"
+__version__ = "0.1"
 __author__ = "Milan Skocic"
 __author_email__ = "milan.skocic@gmail.com"
 __maintainer__ = __author__
