@@ -1,5 +1,6 @@
 import argparse
-from pec.Analyse_PEC import Tk, Analyse_PEC
+import tkinter as tk
+from pec import Analyse_PEC
 from pec import DotViewer
 
 parser = argparse.ArgumentParser()
@@ -9,10 +10,10 @@ parser.add_argument('--viewer', action='store_true', default=False, required=Fal
 args = parser.parse_args()
 
 if args.viewer:
-    root = Tk()
+    root = tk.Tk()
     app = DotViewer.Viewer(master=root)
     app.start()
 else:
-    root = Tk()
-    app = Analyse_PEC(master=root)
+    root = tk.Tk()
+    app = Analyse_PEC.Analyse_PEC(master=root)
     app.start()
