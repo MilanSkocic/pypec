@@ -2,8 +2,7 @@
 r""" Modules - Iph Functions
 
 This module contains functions requiered for computing and optimizing the photo-current values from
-input parameters i.e. triplets :math:`(K_i, \theta_i, Eg_i)` and experimental data for each semi-conductive phase. 
-
+input parameters i.e. triplets :math:`(K_i, \theta_i, Eg_i)` and experimental data for each semi-conductive phase :cite:p:`Petit2013`.
 """
 import os
 import sys
@@ -475,8 +474,8 @@ def _get_chi2(p, hv, prm_array, iph_exp_complex, phi_N, weights=1.0):
 
 def get_Iph_calc(hv, prm_array, phi_N):
     r"""
-    Compute the complex values of :math:`Iph` based on the values and states of the triplets
-     :math:`(K_i, \theta_i, Eg_i)`.
+    Compute the complex values of :math:`Iph` based on the values 
+    and states of the triplets :math:`(K_i, \theta_i, Eg_i)` :cite:p:`Petit2013`.
 
     .. math::
         Iph^{\ast} = \frac{Iph}{\Phi_{N}}

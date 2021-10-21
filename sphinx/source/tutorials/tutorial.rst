@@ -44,7 +44,7 @@ and/or partial informations could be obtained on the oxides present in the scale
 
 As :math:`I_{PH}^{\ast}` is measured under modulated light conditions and thus actually is a complex number, 
 the real and the imaginary parts of the photocurrent  should be considered simultaneously when analyzing 
-and fitting the photocurrent energy spectra, rather than their modulus [1]_.
+and fitting the photocurrent energy spectra, rather than their modulus :cite:p:`Petit2013`.
 
 .. math::
     :label: eq:complex_iph
@@ -81,6 +81,4 @@ necessary to reach the minimum of the scalar function and a stable set of the ou
 The user is free to set the number of successive calls of the Nelder-Mead procedure. 
 Constraints on the 3 :math:`m` variables can be set by the user.
 
-
-.. [1] J.-P. Petit, R. Boichot, A. Loucif, A. Srisrual, and Y. Wouters, *Photoelectrochemistry of Oxidation Layers: a Novel Approach to Analyze Photocurrent Energy Spectra*, Oxidation of Metals, vol. 1 , pp. 1\--11, 2013.
     
