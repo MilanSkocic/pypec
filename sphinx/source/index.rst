@@ -14,6 +14,8 @@ Welcome to PyPEC's documentation!
    tutorials/index.rst
    releases/index.rst
    autodoc/index.rst
+   bibliography/index.rst
+   
    
 Indices and tables
 ==================
