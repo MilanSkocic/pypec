@@ -8,6 +8,7 @@ import sys
 import datetime
 import shutil
 import pathlib
+import multiprocessing as mp
 
 import numpy as np
 from scipy.constants import h, e, c
@@ -1452,6 +1453,7 @@ class Analyse_PEC(Frame):
         self.prm_binary()
 
     def start(self):
+        mp.set_start_method("spawn")
         self.mainloop()
 
     def ask_quit(self):
