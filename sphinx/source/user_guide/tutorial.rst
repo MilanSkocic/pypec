@@ -1,5 +1,8 @@
+PhotoElectrochemistry
+======================
+
 Introduction
-============
+--------------
 
 Photo-electrochemistry characterizations are used to study films at macroscopic, mesoscopic, and microscopic scales. 
 The latter advances were used to support (photo-)electrochemical studies of the electronic and optical properties of passive films 
@@ -35,7 +38,7 @@ and :math:`n=2` for an allowed indirect transition. Direct transitions are rarel
 observed in more or less disordered thin oxide films. 
 
 Fitting of the Photocurrent Energy Spectra
-==========================================
+--------------------------------------------
 
 Linear transformations were successfully performed for oxides made of one or two constituents. 
 However, for complex oxide scales formed of several p-type and n-type phases, the complete 
