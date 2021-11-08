@@ -1,4 +1,5 @@
-# Description
+Description
+================
 
 PyPEC aims at Fitting PEC data with an graphical interface. 
 The program was initially developped in Python 2.7 during my PhD from 2012 to 2015 and the code is available on github
@@ -10,17 +11,18 @@ remained untouched for almost 3 years and is now again under development in this
 This is the first release after migrating to github which will serve as a backup for the version developed during my
 PhD with completed documentation. 
 
-# Installation
-
+Installation
+==================
 See  ``INSTALL.txt``.
 
 
-# Dependencies
-
+Dependencies
+===================
 See ``requirements.txt``.
 
 
-# License information
+License information
+===========================
 
 See ``LICENSE.txt`` for information on the history of this
 software, terms & conditions for usage, and a DISCLAIMER OF ALL
