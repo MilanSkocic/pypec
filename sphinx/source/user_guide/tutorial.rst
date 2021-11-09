@@ -1,7 +1,7 @@
 PhotoElectrochemistry
 ======================
 
-Introduction
+Basics
 --------------
 
 Photo-electrochemistry characterizations are used to study films at macroscopic, mesoscopic, and microscopic scales. 
@@ -37,7 +37,7 @@ on the band to band transition type, :math:`n=1/2` for an allowed direct transit
 and :math:`n=2` for an allowed indirect transition. Direct transitions are rarely 
 observed in more or less disordered thin oxide films. 
 
-Fitting of the Photocurrent Energy Spectra
+Fitting
 --------------------------------------------
 
 Linear transformations were successfully performed for oxides made of one or two constituents. 
@@ -85,3 +85,27 @@ The user is free to set the number of successive calls of the Nelder-Mead proced
 Constraints on the 3 :math:`m` variables can be set by the user.
 
     
+GUI
+====================
+
+Describe the different sections in the GUI.
+
+
+.. figure:: ../images/User_Guide-Global_Overview.png
+    :width: 1200
+    :align: center
+
+Load data
+-------------
+
+
+Load parameters
+--------------------
+
+
+Set fit parameters
+------------------------
+
+
+Result folder
+-----------------

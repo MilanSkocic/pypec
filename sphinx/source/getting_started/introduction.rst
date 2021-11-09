@@ -1,8 +1,5 @@
-Introduction
-=============
-
 Description
-------------
+============
 
 Fitting PEC.
 
@@ -12,17 +9,17 @@ The source code can be viewed on
 `GitHub <http://www.github.com/MilanSkocic/PyPEC3>`_.
 
 How to install
------------------
+=================
 
 .. literalinclude:: ../../../INSTALL.txt
     :language: bash
 
 Dependencies
---------------
+==============
 
 .. literalinclude:: ../../../requirements.txt
 
 License
-----------
+==========
 
 .. literalinclude:: ../../../LICENSE.txt
