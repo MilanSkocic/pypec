@@ -1,0 +1,8 @@
+numpy==1.17
+matplotlib==3.0.0
+Pillow==6.0.0
+
+sphinx
+numpydoc
+pylint
+mypy
