@@ -1,20 +1,20 @@
 r"""Setup"""
 import os
 from setuptools import setup, find_packages
-import pec
+import pypec
 
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname), 'r', encoding='utf-8').read()
 
 
-setup(name=pec.__package_name__,
-      version=pec.__version__,
-      maintainer=pec.__maintainer__,
-      maintainer_email=pec.__maintainer_email__,
-      author=pec.__author__,
-      author_email=pec.__author_email__,
-      description=pec.__package_name__,
+setup(name=pypec.__package_name__,
+      version=pypec.__version__,
+      maintainer=pypec.__maintainer__,
+      maintainer_email=pypec.__maintainer_email__,
+      author=pypec.__author__,
+      author_email=pypec.__author_email__,
+      description=pypec.__package_name__,
       long_description=read('README.rst'),
       url='https://milanskocic.github.io/PyPEC3/index.html',
       download_url='https://github.com/MilanSkocic/PyPEC3/',

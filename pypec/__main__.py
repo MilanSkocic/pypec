@@ -1,7 +1,7 @@
 import argparse
 import tkinter as tk
-from pec import Analyse_PEC
-from pec import DotViewer
+from pypec import Analyse_PEC
+from pypec import DotViewer
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--viewer', action='store_true', default=False, required=False,
