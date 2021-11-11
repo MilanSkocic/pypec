@@ -1,7 +1,13 @@
 Description
 ============
+PyPEC aims at fitting PEC data with an graphical interface. 
 
-Fitting PEC.
+In terminal enter the following command:
+
+.. code-block:: bash
+
+    python -m pypec 
+
 
 A pdf version of the documentation can be found here 
 :download:`PyPEC3 <../../build/latex/PyPEC.pdf>`. 

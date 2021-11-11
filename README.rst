@@ -8,7 +8,7 @@ The program was initially developped in Python 2.7 during my PhD from 2012 to 20
 In 2016, the code was rewritten in Python 3 at the end of my PhD with slight modifications of the original. The code 
 remained untouched for almost 3 years and is now again under development in this repository.
 
-This is the first release after migrating to github which will serve as a backup for the version developed during my
+The first release after migrating to github will serve as a backup for the version developed during my
 PhD with completed documentation. 
 
 Installation
