@@ -1,7 +1,6 @@
-Release Notes
+Bibliography
 ==================================
-
 .. toctree::
     :maxdepth: 1
 
-    0.1.0-notes.rst
+    bibliography.rst

@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pypec.Parallel_Process &#8212; PyPEC 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
+    
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PyPEC 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pypec.Parallel_Process</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pypec.Parallel_Process</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Module for controlling the parallel processes running during the fitting procedure&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">iph_functions</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">cpu_count</span><span class="p">,</span> <span class="n">Queue</span><span class="p">,</span> <span class="n">Event</span>
+
+
+<div class="viewcode-block" id="get_queue"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Parallel_Process.get_queue">[docs]</a><span class="k">def</span> <span class="nf">get_queue</span><span class="p">():</span>
+
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DocString</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">Queue</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="get_cpu_number"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Parallel_Process.get_cpu_number">[docs]</a><span class="k">def</span> <span class="nf">get_cpu_number</span><span class="p">():</span>
+
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DocString</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">cpu_count</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="initialize_processes"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Parallel_Process.initialize_processes">[docs]</a><span class="k">def</span> <span class="nf">initialize_processes</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create N processes as daemons and return them in a list.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    n: int</span>
+<span class="sd">        Number of processes to be created.</span>
+<span class="sd">    daemon: bool</span>
+<span class="sd">        Flag for creating daemon process.</span>
+<span class="sd">    kwargs: dict</span>
+<span class="sd">        See :class:`MinimizationProcess`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">workers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Process: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">worker</span> <span class="o">=</span> <span class="n">MinimizationProcess</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">worker</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="n">daemon</span>
+        <span class="n">workers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">worker</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">workers</span></div>
+
+
+<div class="viewcode-block" id="start_processes"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Parallel_Process.start_processes">[docs]</a><span class="k">def</span> <span class="nf">start_processes</span><span class="p">(</span><span class="n">workers</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    workers: subprocess workers</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    0: return integer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">worker</span> <span class="ow">in</span> <span class="n">workers</span><span class="p">:</span>
+        <span class="n">worker</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">return</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="PlotSummaryProcess"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Parallel_Process.PlotSummaryProcess">[docs]</a><span class="k">class</span> <span class="nc">PlotSummaryProcess</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fit_folder: str</span>
+<span class="sd">        Path to the folder where the summary files will be saved.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    -----------</span>
+<span class="sd">    fit_folder: str</span>
+<span class="sd">        Path to the folder where the summary files will be saved.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fit_folder</span><span class="p">):</span>
+        <span class="n">Process</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_folder</span> <span class="o">=</span> <span class="n">fit_folder</span>
+
+<div class="viewcode-block" id="PlotSummaryProcess.run"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Parallel_Process.PlotSummaryProcess.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">iph_functions</span><span class="o">.</span><span class="n">get_summary</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fit_folder</span><span class="p">)</span>
+        <span class="n">iph_functions</span><span class="o">.</span><span class="n">plot_summary</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fit_folder</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="MinimizationProcess"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Parallel_Process.MinimizationProcess">[docs]</a><span class="k">class</span> <span class="nc">MinimizationProcess</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">output_queue</span><span class="p">,</span>
+                 <span class="n">name</span><span class="p">,</span>
+                 <span class="n">prm_init</span><span class="p">,</span>
+                 <span class="n">nb_run</span><span class="p">,</span>
+                 <span class="n">nb_SC</span><span class="p">,</span>
+                 <span class="n">init_type</span><span class="p">,</span>
+                 <span class="n">random_loops</span><span class="p">,</span>
+                 <span class="n">hv</span><span class="p">,</span>
+                 <span class="n">iph_exp_complex</span><span class="p">,</span>
+                 <span class="n">iph_exp_complex_CI</span><span class="p">,</span>
+                 <span class="n">phi_N</span><span class="p">,</span>
+                 <span class="n">phi_N_CI</span><span class="p">,</span>
+                 <span class="n">weights</span><span class="p">,</span>
+                 <span class="n">hv_limits</span><span class="p">,</span>
+                 <span class="n">nb_fit_in_run</span><span class="p">,</span>
+                 <span class="n">fit_folder</span><span class="p">,</span>
+                 <span class="n">filepath</span><span class="p">,</span>
+                 <span class="n">suffix</span><span class="p">,</span>
+                 <span class="n">NelderMead_options</span><span class="o">=</span><span class="p">(</span><span class="mf">1e-11</span><span class="p">,</span> <span class="mf">1e-23</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+                 <span class="n">ParameterConstraints</span><span class="o">=</span><span class="p">((</span><span class="mf">1e-12</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">),</span>
+                                       <span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span>
+                                       <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">6.2</span><span class="p">),</span>
+                                       <span class="kc">True</span><span class="p">),</span>
+                 <span class="n">update_every</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+
+        <span class="n">Process</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exit_event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_queue</span> <span class="o">=</span> <span class="n">output_queue</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">prm_init</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prm_array_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">prm_init</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">prm_init</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">prm_init</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">prm_init</span><span class="p">[:]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prm_array_init</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">prm_init</span><span class="p">[:]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">prm_init</span><span class="p">[:]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">prm_init</span><span class="p">[:]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">prm_values_flatten</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prm_states_flatten</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prm_to_fit_mask</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_states_flatten</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nb_prm_to_fit</span><span class="p">,</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_to_fit_mask</span><span class="o">.</span><span class="n">shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xtol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration_per_prm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_calls_per_prm</span> <span class="o">=</span> <span class="n">NelderMead_options</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_fmin_iteration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_prm_to_fit</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration_per_prm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_fmin_func_calls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_prm_to_fit</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_calls_per_prm</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nb_run</span> <span class="o">=</span> <span class="n">nb_run</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nb_SC</span> <span class="o">=</span> <span class="n">nb_SC</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_type_0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_N</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_validation</span> <span class="o">=</span> <span class="n">init_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_loops</span> <span class="o">=</span> <span class="n">random_loops</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">hv</span> <span class="o">=</span> <span class="n">hv</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_N</span> <span class="o">=</span> <span class="n">phi_N</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_N_CI</span> <span class="o">=</span> <span class="n">phi_N_CI</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span> <span class="o">=</span> <span class="n">iph_exp_complex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex_CI</span> <span class="o">=</span> <span class="n">iph_exp_complex_CI</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iph_calc_complex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+
+        <span class="n">hv_start</span><span class="p">,</span> <span class="n">hv_end</span> <span class="o">=</span> <span class="n">hv_limits</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span> <span class="o">&gt;=</span> <span class="n">hv_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span> <span class="o">&lt;=</span> <span class="n">hv_end</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nb_fit_in_run</span> <span class="o">=</span> <span class="n">nb_fit_in_run</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_folder</span> <span class="o">=</span> <span class="n">fit_folder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span> <span class="o">=</span> <span class="n">filepath</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Suffix</span> <span class="o">=</span> <span class="n">suffix</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">K_limits</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta_limits</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Eg_limits</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Ki_log_flag</span> <span class="o">=</span> <span class="n">ParameterConstraints</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Dist_min_fit</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Dist_end_fit</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_every</span> <span class="o">=</span> <span class="n">update_every</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">header2</span> <span class="o">=</span> <span class="s1">&#39;Nb of minimization </span><span class="se">\t</span><span class="s1"> Valid </span><span class="se">\t</span><span class="s1"> np.log10(D) </span><span class="se">\t</span><span class="s1"> LCC Module </span><span class="se">\t</span><span class="s1"> LCC Phase </span><span class="se">\t</span><span class="s1"> LCC Re </span><span class="se">\t</span><span class="s1"> LCC Im </span><span class="se">\t</span><span class="s1"> &#39;</span> \
+                       <span class="o">+</span> <span class="s1">&#39;slope Modulus </span><span class="se">\t</span><span class="s1"> slope Phase </span><span class="se">\t</span><span class="s1"> slope Re </span><span class="se">\t</span><span class="s1"> slope Im </span><span class="se">\t</span><span class="s1"> &#39;</span> \
+                       <span class="o">+</span> <span class="s1">&#39;intercept Module </span><span class="se">\t</span><span class="s1"> intercept Phase </span><span class="se">\t</span><span class="s1"> intercept Re </span><span class="se">\t</span><span class="s1"> intercept Im </span><span class="se">\t</span><span class="s1">&#39;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nb_SC</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">header2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">header2</span> <span class="o">+</span> <span class="s1">&#39;K_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">header2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">header2</span> <span class="o">+</span> <span class="s1">&#39;Phi_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">header2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">header2</span> <span class="o">+</span> <span class="s1">&#39;Eg_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span>
+
+
+<div class="viewcode-block" id="MinimizationProcess.run"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Parallel_Process.MinimizationProcess.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nb_run</span><span class="p">):</span>
+
+            <span class="k">if</span> <span class="n">run</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_0</span> <span class="o">==</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_random_scan</span><span class="p">(</span><span class="n">hv</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                                                <span class="n">prm_array</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span>
+                                                                <span class="n">iph_exp_complex</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                                                <span class="n">phi_N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_N</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                                                <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                                                <span class="n">loops</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_loops</span><span class="p">,</span>
+                                                                <span class="n">K_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">K_limits</span><span class="p">,</span>
+                                                                <span class="n">theta_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_limits</span><span class="p">,</span>
+                                                                <span class="n">Eg_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Eg_limits</span><span class="p">,</span>
+                                                                <span class="n">phase_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_0</span> <span class="o">==</span> <span class="s1">&#39;user&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array_init</span><span class="p">[:]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_N</span> <span class="o">==</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">get_random_prm_values</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span>
+                                                                         <span class="n">K_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">K_limits</span><span class="p">,</span>
+                                                                         <span class="n">theta_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_limits</span><span class="p">,</span>
+                                                                         <span class="n">Eg_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Eg_limits</span><span class="p">,</span>
+                                                                         <span class="n">phase_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_N</span> <span class="o">==</span> <span class="s1">&#39;user&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array_init</span><span class="p">[:]</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_N</span> <span class="o">==</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">[:]</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_N</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">[:]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">sort_prm_Eg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">iph_calc_complex</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">get_Iph_calc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_N</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span>
+
+            <span class="c1"># self.Dist_min_fit = iph_functions.get_distance(self.iph_exp_complex[self.mask],</span>
+            <span class="c1"># self.iph_calc_complex[self.mask])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Dist_min_fit</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_get_chi2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                                                        <span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">,</span>
+                                                        <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span>
+                                                        <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span><span class="p">,</span>
+                                                        <span class="bp">self</span><span class="o">.</span><span class="n">phi_N</span><span class="p">,</span>
+                                                        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
+
+            <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_fit_in_run</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="mi">15</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Suivi_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">))</span>
+            <span class="n">fit_in_run</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">fit_in_run</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nb_fit_in_run</span><span class="p">):</span>
+
+                <span class="c1"># check if the shutdown signal was sent</span>
+                <span class="c1"># if shutdown signal is true, break the fit loop</span>
+                <span class="c1"># otherwise execute the else statement</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+                    <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">hv</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                                                      <span class="n">iph_exp_complex</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                                                      <span class="n">phi_N</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">phi_N</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                                                      <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                                                      <span class="n">prm_array</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span>
+                                                                      <span class="n">Ki_log_flag</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ki_log_flag</span><span class="p">,</span>
+                                                                      <span class="n">maxiter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_fmin_iteration</span><span class="p">,</span>
+                                                                      <span class="n">maxfun</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_fmin_func_calls</span><span class="p">,</span>
+                                                                      <span class="n">xtol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">xtol</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ftol</span><span class="p">,</span>
+                                                                      <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">retall</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                                      <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">iph_calc_complex</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">get_Iph_calc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_N</span><span class="p">)</span>
+
+                    <span class="n">LCC_results</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">get_LCC</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                                        <span class="bp">self</span><span class="o">.</span><span class="n">iph_calc_complex</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">])</span>
+
+                    <span class="n">valid</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">validate_prm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span> <span class="n">K_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">K_limits</span><span class="p">,</span> <span class="n">Eg_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Eg_limits</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">shift_phase</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span> <span class="n">theta_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_limits</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Suivi_fit</span><span class="p">[</span><span class="n">fit_in_run</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span>
+                        <span class="n">fit_in_run</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">valid</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">distance</span><span class="p">),</span> <span class="n">LCC_results</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Dist_end_fit</span> <span class="o">=</span> <span class="n">distance</span>
+
+                    <span class="c1">#Output for the main process - Queue data</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">fit_in_run</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_every</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">run</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fit_in_run</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                                  <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">iph_calc_complex</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">Suivi_fit</span><span class="p">]]</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">output_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">valid</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_validation</span> <span class="o">==</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">get_random_prm_values</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">,</span>
+                                                                                 <span class="n">K_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">K_limits</span><span class="p">,</span>
+                                                                                 <span class="n">theta_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_limits</span><span class="p">,</span>
+                                                                                 <span class="n">Eg_bound</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Eg_limits</span><span class="p">,</span>
+                                                                                 <span class="n">phase_flag</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_type_validation</span> <span class="o">==</span> <span class="s1">&#39;user&#39;</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array_init</span><span class="p">[:]</span>
+
+                    <span class="k">elif</span> <span class="n">valid</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dist_min_fit</span> <span class="o">&gt;</span> <span class="n">distance</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">Dist_min_fit</span> <span class="o">=</span> <span class="n">distance</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prm_array</span><span class="p">[:]</span>
+
+
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Saving results</span>
+                <span class="c1"># Executed when no break signal was triggered</span>
+                <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex_CI</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_N_CI</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">[:,</span><span class="mi">8</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_get_prm_error</span><span class="p">(</span><span class="n">iph_functions</span><span class="o">.</span><span class="n">_get_residuals</span><span class="p">,</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_EPSILON</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+                <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex_CI</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_N_CI</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">[:,</span><span class="mi">8</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_get_prm_error</span><span class="p">(</span><span class="n">iph_functions</span><span class="o">.</span><span class="n">_get_residuals</span><span class="p">,</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_EPSILON</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+                <span class="n">iph_functions</span><span class="o">.</span><span class="n">save_results</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_id</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">fit_folder</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Suffix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_N</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dist_min_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dist_end_fit</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">Suivi_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">header2</span><span class="p">)</span>
+            <span class="c1"># When a break signal is triggered the else statement is skipped</span>
+            <span class="c1"># Save fits results before breaking the run loop</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+                <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex_CI</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_N_CI</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">[:,</span><span class="mi">8</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_get_prm_error</span><span class="p">(</span><span class="n">iph_functions</span><span class="o">.</span><span class="n">_get_residuals</span><span class="p">,</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_EPSILON</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+                <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex_CI</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_N_CI</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">[:,</span><span class="mi">8</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_get_prm_error</span><span class="p">(</span><span class="n">iph_functions</span><span class="o">.</span><span class="n">_get_residuals</span><span class="p">,</span> <span class="n">iph_functions</span><span class="o">.</span><span class="n">_EPSILON</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+                <span class="n">iph_functions</span><span class="o">.</span><span class="n">save_results</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_id</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">fit_folder</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Suffix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_N</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">PRM_min_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRM_end_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dist_min_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dist_end_fit</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">Suivi_fit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">header2</span><span class="p">)</span>
+                <span class="k">break</span>
+
+            <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">run</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fit_in_run</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                      <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">hv</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">iph_exp_complex</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">iph_calc_complex</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">],</span>
+                       <span class="bp">self</span><span class="o">.</span><span class="n">Suivi_fit</span><span class="p">]]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+        <span class="c1"># print &#39;Process &#39;+ str(self.process_id) + &#39; done.&#39;</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;done&#39;</span><span class="p">,</span> <span class="p">[]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MinimizationProcess.shutdown"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Parallel_Process.MinimizationProcess.shutdown">[docs]</a>    <span class="k">def</span> <span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># print(self.name + &#39; was shutdown.&#39;)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exit_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span></div></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PyPEC 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pypec.Parallel_Process</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Milan Skocic.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+    </div>
+  </body>
+</html>
