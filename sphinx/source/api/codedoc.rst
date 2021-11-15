@@ -1,20 +1,20 @@
 Graphical FrontEnd
 ==================
-.. currentmodule:: pec.Analyse_PEC
-.. automodule:: pec.Analyse_PEC
+.. currentmodule:: pypec.Analyse_PEC
+.. automodule:: pypec.Analyse_PEC
 	:members:
 	:undoc-members:
 
 Iph Functions
 ==================
-.. currentmodule:: pec.iph_functions
-.. automodule:: pec.iph_functions
+.. currentmodule:: pypec.iph_functions
+.. automodule:: pypec.iph_functions
 	:members:
 	:undoc-members:
 
 Parallel Processes
 ==================
-.. currentmodule:: pec.Parallel_Process
-.. automodule:: pec.Parallel_Process
+.. currentmodule:: pypec.Parallel_Process
+.. automodule:: pypec.Parallel_Process
 	:members:
 	:undoc-members:
