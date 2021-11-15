@@ -12,13 +12,13 @@ In 2016, the code was rewritten in Python 3 at the end of my PhD with slight mod
 The code remained untouched for almost 3 years and is now again under development in this repository.
 
 This is the first release after migrating to github which will serve as a backup for the version developed during my
-PhD with completed documentation. No modification to the original.
+PhD with completed documentation. No modification to the original code.
 
 
 New Features
 -----------------
 
-* Load data: \*.dot files
+* Load data: \*.dot files (data format developped in Grenoble Lab SiMaP)
 * multi-process fitting: N processes x M fits x L loops
 * automatic creation of result folder based on sample name and fitting parameters
 * results saved in a folder

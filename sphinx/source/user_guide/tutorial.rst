@@ -88,24 +88,60 @@ Constraints on the 3 :math:`m` variables can be set by the user.
 GUI
 ====================
 
-Describe the different sections in the GUI.
+The main window contains all the elements necessary to run the fit. The design is cluttered but it allows exposing
+directly all the fitting settings to the user without deep menus.
 
 
 .. figure:: ../images/User_Guide-Global_Overview.png
     :width: 1200
     :align: center
 
-Load data
--------------
+
+The different steps, presented in the left pane, for performing the fit are:
+
+* load data: the accepted formats are:
+   * :ref:`dot_files` files which are ascii files developped in the SiMaP Lab
+   * :ref:`data_files` files which are generic ascii files
+* set the number of semiconductive contributions (:ref:`parameter_table`)
+
+At this point the fit can be ran. 
+
+If needed select custom choice for all the fitting parameter in the left pane.
 
 
-Load parameters
+.. _dot_files:
+
+\*.dot files
 --------------------
 
-
-Set fit parameters
-------------------------
+They have a specific formating and they are provided by the PEC setup in the SiMaP Lab. 
 
 
-Result folder
------------------
+.. _data_files:
+
+\*.data files
+--------------
+The \*.data files are generic ascii files where:
+
+* the first column is the energy of the incident light in eV.
+* the second column is the modulus of the photocurrent in A.
+* the thrid column is the phase shift of the photocurrent in degrees.
+
+.. _parameter_table:
+
+Parameter Table
+------------------
+
+The parameter table allows for fitting the *3m* variables. The table is structured as shown below:
+
+
+====  ========== ============ ================= ======= ============
+Ki    Fit Kgi    theta i      Fit Phase i       Egi     Fit Egi
+====  ========== ============ ================= ======= ============
+K 1   0 or 1     Phase 1       0 or 1           Eg 1    0 or 1
+K 2   0 or 1     Phase 2       0 or 1           Eg 2    0 or 1
+\...  \...       \...          \...             \...    \...
+K n   0 or 1     Phase n       0 or 1           Eg n    0 or 1
+====  ========== ============ ================= ======= ============
+
+Each parameter :math:`K_i`, :math:`\theta _i` and :math:`Eg_i` can be locked by setting the **Fit X** column to 0.
