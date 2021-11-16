@@ -10,9 +10,9 @@ In terminal enter the following command:
 
 
 A pdf version of the documentation can be found here 
-:download:`PyPEC3 <../../build/latex/PyPEC.pdf>`. 
+:download:`PyPEC <../../build/latex/PyPEC.pdf>`. 
 The source code can be viewed on 
-`GitHub <http://www.github.com/MilanSkocic/PyPEC3>`_.
+`GitHub <http://www.github.com/MilanSkocic/PyPEC>`_.
 
 How to install
 =================
