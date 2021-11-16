@@ -9,7 +9,7 @@ include LICENSE
 include requirements.txt
 include requirements-dev.txt
 include MANIFEST.in
-include README.md
+include README.rst
 
 # Add examples folder, only in sdist-generated tarballs
 include pypec/icon.png 
