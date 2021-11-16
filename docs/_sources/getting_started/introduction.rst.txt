@@ -10,7 +10,7 @@ In terminal enter the following command:
 
 
 A pdf version of the documentation can be found here 
-:download:`PyPEC <../../build/latex/PyPEC.pdf>`. 
+:download:`pypec <../../build/latex/pypec.pdf>`. 
 The source code can be viewed on 
 `GitHub <http://www.github.com/MilanSkocic/PyPEC>`_.
 
