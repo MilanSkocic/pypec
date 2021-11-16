@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# PyPEC documentation build configuration file, created by
+# pypec documentation build configuration file, created by
 # sphinx-quickstart on Sat Dec 13 21:40:31 2014.
 #
 # This file is execfile()d with the current directory set to its
@@ -57,7 +57,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'PyPEC'
+project = u'pypec'
 copyright = u'2021, Milan Skocic'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -190,7 +190,7 @@ html_theme = 'classic'
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'PyPECdoc'
+htmlhelp_basename = 'pypecdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -210,7 +210,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'PyPEC.tex', u'PyPEC Documentation',
+  ('index', 'pypec.tex', u'pypec Documentation',
    u'Milan Skocic', 'manual'),
 ]
 
@@ -240,7 +240,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'pypec', u'PyPEC Documentation',
+    ('index', 'pypec', u'pypec Documentation',
      [u'Milan Skocic'], 1)
 ]
 
@@ -254,8 +254,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'PyPEC', u'PyPEC Documentation',
-   u'Milan Skocic', 'PyPEC', 'Fitting procedure for PEC data.',
+  ('index', 'pypec', u'pypec Documentation',
+   u'Milan Skocic', 'pypec', 'Fitting procedure for PEC data.',
    'Miscellaneous'),
 ]
 
