@@ -65,7 +65,7 @@ copyright = u'2021, Milan Skocic'
 # built documents.
 #
 # The short X.Y version.
-version = "0.1"
+version = "dev"
 # The full version, including alpha/beta/rc tags.
 release = version
 
