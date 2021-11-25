@@ -1,6 +1,7 @@
 Description
 ============
-PyPEC aims at fitting PEC data with an graphical interface. 
+
+:program:`pypec` aims at fitting PEC data with an graphical interface. 
 
 In terminal enter the following command:
 
