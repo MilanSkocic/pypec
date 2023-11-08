@@ -23,4 +23,19 @@ New Features
 * results saved in a folder
 
 
-.. include:: 0.1.0-changelog.rst
+Download
+----------
+
+`pypec <https://pypi.org/project/pypec>`_
+
+
+Contributors
+---------------
+
+Milan Skocic
+
+
+Commits
+--------
+
+Full Changelog: https://github.com/MilanSkocic/pypec/compare/....0.1.0
