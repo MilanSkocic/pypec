@@ -1,7 +1,7 @@
 Description
 ================
 
-:program:`pypec` aims at fitting PEC data with an graphical interface. 
+**pypec** aims at fitting PEC data with an graphical interface. 
 The program was initially developped in Python 2.7 during my PhD from 2012 to 2015. 
 
 In 2016, the code was rewritten in Python 3 at the end of my PhD with slight modifications of the original. The code 
