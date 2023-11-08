@@ -58,14 +58,15 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'pypec'
-copyright = u'2021, Milan Skocic'
+copyright = u'2023 Milan Skocic'
+author= "Milan Skocic"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = "dev"
+version = "0.1.1"
 # The full version, including alpha/beta/rc tags.
 release = version
 
