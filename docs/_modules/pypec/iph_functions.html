@@ -1,18 +1,16 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pypec.iph_functions &#8212; pypec 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
+    <title>pypec.iph_functions &#8212; pypec 0.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=514cf933" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -26,7 +24,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">pypec 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pypec 0.1.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">pypec.iph_functions</a></li> 
       </ul>
@@ -83,8 +81,10 @@
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;M.Skocic&#39;</span>
 
 
-<div class="viewcode-block" id="get_header_footer_dot_file"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_header_footer_dot_file">[docs]</a><span class="k">def</span> <span class="nf">get_header_footer_dot_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="get_header_footer_dot_file">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_header_footer_dot_file">[docs]</a>
+<span class="k">def</span> <span class="nf">get_header_footer_dot_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Find the number of lines in header and footer in .dot files.</span>
 <span class="sd">    </span>
@@ -120,8 +120,11 @@
     <span class="k">return</span> <span class="n">skip_header</span><span class="p">,</span> <span class="n">skip_footer</span><span class="p">,</span> <span class="n">nbpoints</span></div>
 
 
-<div class="viewcode-block" id="get_exp_data"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_exp_data">[docs]</a><span class="k">def</span> <span class="nf">get_exp_data</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="get_exp_data">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_exp_data">[docs]</a>
+<span class="k">def</span> <span class="nf">get_exp_data</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Get the data array of data files according to their extension.</span>
 
@@ -222,8 +225,11 @@
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;FileType Error: File was not recognized&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="import_prm_file"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.import_prm_file">[docs]</a><span class="k">def</span> <span class="nf">import_prm_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="import_prm_file">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.import_prm_file">[docs]</a>
+<span class="k">def</span> <span class="nf">import_prm_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Import the triplets :math:`(K_i, \theta_i, Eg_i)` from text file where each line represents a</span>
 <span class="sd">    contributing semi-conductive phase.</span>
@@ -282,12 +288,15 @@
     <span class="k">return</span> <span class="n">prm_array</span></div>
 
 
-<div class="viewcode-block" id="get_random_prm_values"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_random_prm_values">[docs]</a><span class="k">def</span> <span class="nf">get_random_prm_values</span><span class="p">(</span><span class="n">prm_array</span><span class="p">,</span>
+
+<div class="viewcode-block" id="get_random_prm_values">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_random_prm_values">[docs]</a>
+<span class="k">def</span> <span class="nf">get_random_prm_values</span><span class="p">(</span><span class="n">prm_array</span><span class="p">,</span>
                           <span class="n">K_bound</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
                           <span class="n">theta_bound</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">),</span>
                           <span class="n">Eg_bound</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">6.2</span><span class="p">),</span>
                           <span class="n">phase_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Generates random values for the triplets :math:`(K_i, \theta_i, Eg_i)` to be fitted based on the states</span>
 <span class="sd">    given by the `prm_array`.</span>
@@ -352,8 +361,11 @@
     <span class="k">return</span> <span class="n">random_prm_array</span></div>
 
 
-<div class="viewcode-block" id="sort_prm_Eg"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.sort_prm_Eg">[docs]</a><span class="k">def</span> <span class="nf">sort_prm_Eg</span><span class="p">(</span><span class="n">prm_array</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="sort_prm_Eg">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.sort_prm_Eg">[docs]</a>
+<span class="k">def</span> <span class="nf">sort_prm_Eg</span><span class="p">(</span><span class="n">prm_array</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Sort the ``prm_array`` based on values of :math:`Eg_i`.</span>
 
@@ -375,8 +387,11 @@
     <span class="k">return</span> <span class="n">prm_array</span></div>
 
 
-<div class="viewcode-block" id="shift_phase"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.shift_phase">[docs]</a><span class="k">def</span> <span class="nf">shift_phase</span><span class="p">(</span><span class="n">prm_array</span><span class="p">,</span> <span class="n">theta_bound</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">)):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="shift_phase">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.shift_phase">[docs]</a>
+<span class="k">def</span> <span class="nf">shift_phase</span><span class="p">(</span><span class="n">prm_array</span><span class="p">,</span> <span class="n">theta_bound</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">)):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Compute the modulo of :math:`\theta _i` values with :math:`2\pi` and then</span>
 <span class="sd">    shift the values of :math:`\theta _i` by the amplitude of the boundaries in order</span>
@@ -414,10 +429,13 @@
     <span class="k">return</span> <span class="n">prm_array</span></div>
 
 
-<div class="viewcode-block" id="validate_prm"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.validate_prm">[docs]</a><span class="k">def</span> <span class="nf">validate_prm</span><span class="p">(</span><span class="n">prm_array</span><span class="p">,</span>
+
+<div class="viewcode-block" id="validate_prm">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.validate_prm">[docs]</a>
+<span class="k">def</span> <span class="nf">validate_prm</span><span class="p">(</span><span class="n">prm_array</span><span class="p">,</span>
                  <span class="n">K_bound</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
                  <span class="n">Eg_bound</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">6.2</span><span class="p">)):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Check if the values of :math:`K_i` and :math:`Eg_i` are within the boundaries.</span>
 
@@ -452,8 +470,11 @@
     <span class="k">return</span> <span class="n">valid</span></div>
 
 
-<div class="viewcode-block" id="get_distance"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_distance">[docs]</a><span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">iph_calc_complex</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="get_distance">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_distance">[docs]</a>
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">iph_calc_complex</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Compute the distance :math:`D` between :math:`Iph_{exp}` and</span>
 <span class="sd">    :math:`Iph_{calc}`.</span>
@@ -498,8 +519,9 @@
     <span class="k">return</span> <span class="n">D</span></div>
 
 
+
 <span class="k">def</span> <span class="nf">_get_residuals</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">hv</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;DocString&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;DocString&quot;&quot;&quot;</span>
 
     <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">prm_array</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">prm_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -507,13 +529,15 @@
 
 
 <span class="k">def</span> <span class="nf">_get_chi2</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">hv</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;DocString&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;DocString&quot;&quot;&quot;</span>
 
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">_get_residuals</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">hv</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="get_Iph_calc"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_Iph_calc">[docs]</a><span class="k">def</span> <span class="nf">get_Iph_calc</span><span class="p">(</span><span class="n">hv</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="get_Iph_calc">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_Iph_calc">[docs]</a>
+<span class="k">def</span> <span class="nf">get_Iph_calc</span><span class="p">(</span><span class="n">hv</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the complex values of :math:`Iph` based on the values </span>
 <span class="sd">    and states of the triplets :math:`(K_i, \theta_i, Eg_i)` :cite:p:`Petit2013`.</span>
 
@@ -554,6 +578,7 @@
     <span class="k">return</span> <span class="n">iph_calc_complex</span></div>
 
 
+
 <span class="k">def</span> <span class="nf">_jacobian</span><span class="p">(</span><span class="n">hv</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">):</span>
     <span class="n">nb_SC</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">prm_array</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">Dfun</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">hv</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
@@ -581,7 +606,7 @@
                  <span class="n">theta_bound</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">),</span>
                  <span class="n">Eg_bound</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">6.2</span><span class="p">),</span>
                  <span class="n">phase_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Performs a random scan of the values of the triplets :math:`(K_i, \theta_i, Eg_i)`. The number of random loops is</span>
 <span class="sd">    set with the parameter `loops`.</span>
@@ -660,8 +685,10 @@
     <span class="k">return</span> <span class="n">prm_array_random_min</span>
 
 
-<div class="viewcode-block" id="target_func"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.target_func">[docs]</a><span class="k">def</span> <span class="nf">target_func</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">hv</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">Ki_log_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="target_func">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.target_func">[docs]</a>
+<span class="k">def</span> <span class="nf">target_func</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">hv</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">Ki_log_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Update the triplets :math:`(K_i, \theta_i, Eg_i)` from the flattened parameter</span>
 <span class="sd">    vector ``p`` sent by the optimization algorithm. The ``prm_array`` will be flattened</span>
@@ -722,11 +749,14 @@
     <span class="k">return</span> <span class="n">_get_chi2</span><span class="p">(</span><span class="n">prm_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">hv</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="minimize"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.minimize">[docs]</a><span class="k">def</span> <span class="nf">minimize</span><span class="p">(</span><span class="n">hv</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span>
+
+<div class="viewcode-block" id="minimize">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.minimize">[docs]</a>
+<span class="k">def</span> <span class="nf">minimize</span><span class="p">(</span><span class="n">hv</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span>
              <span class="n">Ki_log_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
              <span class="n">maxiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxfun</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-11</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-23</span><span class="p">,</span>
              <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">retall</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Execute the Nelder-Mead algorithm based on parameter values given by</span>
 <span class="sd">    ``prm_array`` and energy vector :math:`h\nu`.</span>
@@ -825,6 +855,7 @@
     <span class="k">return</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">fopt</span></div>
 
 
+
 <span class="k">def</span> <span class="nf">_callback_fit</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">nb_run</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">nb_minimization</span><span class="p">,</span>
                   <span class="n">distance</span><span class="p">,</span> <span class="n">valid</span><span class="p">,</span>
                   <span class="n">LCC_results</span><span class="p">,</span> <span class="n">prm_array</span><span class="p">,</span> <span class="n">additional_messages</span><span class="o">=</span><span class="p">()):</span>
@@ -853,7 +884,7 @@
 
 
 <span class="k">def</span> <span class="nf">_round_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;DocString&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;DocString&quot;&quot;&quot;</span>
     <span class="n">log_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
     <span class="n">log_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">log_errors</span><span class="p">)</span>
     <span class="n">errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">errors</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">log_errors</span><span class="p">))</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">log_errors</span>
@@ -882,8 +913,10 @@
     <span class="k">return</span> <span class="n">dp</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="get_LCC"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_LCC">[docs]</a><span class="k">def</span> <span class="nf">get_LCC</span><span class="p">(</span><span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">iph_calc_complex</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="get_LCC">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_LCC">[docs]</a>
+<span class="k">def</span> <span class="nf">get_LCC</span><span class="p">(</span><span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">iph_calc_complex</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -908,8 +941,11 @@
             <span class="n">intercept_mod</span><span class="p">,</span> <span class="n">intercept_phase</span><span class="p">,</span> <span class="n">intercept_Re</span><span class="p">,</span> <span class="n">intercept_Im</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_results_array"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_results_array">[docs]</a><span class="k">def</span> <span class="nf">get_results_array</span><span class="p">(</span><span class="n">hv</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">iph_calc_complex</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="get_results_array">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_results_array">[docs]</a>
+<span class="k">def</span> <span class="nf">get_results_array</span><span class="p">(</span><span class="n">hv</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">iph_calc_complex</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Build the data array of the experimental and calculated data: :math:`h\nu`,</span>
 <span class="sd">    :math:`\left| Iph_{exp} \right|`, :math:`\theta _{exp}`, :math:`\left| Iph_{calc} \right|` and :math:`\theta _{calc}`</span>
@@ -971,7 +1007,10 @@
     <span class="k">return</span> <span class="n">header</span><span class="p">,</span> <span class="n">data_array</span></div>
 
 
-<div class="viewcode-block" id="save_results"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.save_results">[docs]</a><span class="k">def</span> <span class="nf">save_results</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">process_id</span><span class="p">,</span> <span class="n">fit_folder</span><span class="p">,</span> <span class="n">datafilepath</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">hv</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span>
+
+<div class="viewcode-block" id="save_results">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.save_results">[docs]</a>
+<span class="k">def</span> <span class="nf">save_results</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">process_id</span><span class="p">,</span> <span class="n">fit_folder</span><span class="p">,</span> <span class="n">datafilepath</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">hv</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">phi_N</span><span class="p">,</span>
                  <span class="n">prm_min_run</span><span class="p">,</span> <span class="n">prm_end_run</span><span class="p">,</span> <span class="n">distance_min_run</span><span class="p">,</span> <span class="n">distance_end_run</span><span class="p">,</span>
                  <span class="n">minimization_results</span><span class="p">,</span> <span class="n">header_minimization_results</span><span class="p">):</span>
     <span class="n">nb_SC</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">prm_end_run</span><span class="o">.</span><span class="n">shape</span>
@@ -1032,7 +1071,10 @@
              <span class="n">mask</span><span class="p">,</span> <span class="n">minimization_results</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="save_pdf"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.save_pdf">[docs]</a><span class="k">def</span> <span class="nf">save_pdf</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span>
+
+<div class="viewcode-block" id="save_pdf">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.save_pdf">[docs]</a>
+<span class="k">def</span> <span class="nf">save_pdf</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span>
              <span class="n">hv</span><span class="p">,</span> <span class="n">iph_exp_complex</span><span class="p">,</span> <span class="n">iph_calc_complex</span><span class="p">,</span>
              <span class="n">mask</span><span class="p">,</span> <span class="n">all_results</span><span class="p">):</span>
     <span class="n">pdf</span> <span class="o">=</span> <span class="n">PdfPages</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
@@ -1110,8 +1152,11 @@
     <span class="n">pdf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="get_summary"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_summary">[docs]</a><span class="k">def</span> <span class="nf">get_summary</span><span class="p">(</span><span class="n">fit_folder</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="get_summary">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.get_summary">[docs]</a>
+<span class="k">def</span> <span class="nf">get_summary</span><span class="p">(</span><span class="n">fit_folder</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    List result files for the triplets :math:`(K_i, \theta_i, Eg_i)` at the end and the minimum of each run.</span>
 
@@ -1294,8 +1339,11 @@
                <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header_end_Eg</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="plot_summary"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.plot_summary">[docs]</a><span class="k">def</span> <span class="nf">plot_summary</span><span class="p">(</span><span class="n">fit_folder</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="plot_summary">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.plot_summary">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_summary</span><span class="p">(</span><span class="n">fit_folder</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Plot the result files that were created by the :func:`get_summary`</span>
 <span class="sd">    for he triplets :math:`(K_i, \theta_i, Eg_i)` at the end and the minimum of each run.</span>
@@ -1474,7 +1522,10 @@
     <span class="n">pdf_min</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="scatter_logpolar"><a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.scatter_logpolar">[docs]</a><span class="k">def</span> <span class="nf">scatter_logpolar</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">r_</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">bullseye</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+<div class="viewcode-block" id="scatter_logpolar">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.iph_functions.scatter_logpolar">[docs]</a>
+<span class="k">def</span> <span class="nf">scatter_logpolar</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">r_</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">bullseye</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">min10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">r_</span><span class="p">)))</span>
     <span class="n">max10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">r_</span><span class="p">)))</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">r_</span><span class="p">)</span> <span class="o">-</span> <span class="n">min10</span> <span class="o">+</span> <span class="n">bullseye</span>
@@ -1484,6 +1535,7 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s2">&quot;$10^{&quot;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">x</span> <span class="o">+</span> <span class="s1">&#39;}$&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_rlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max10</span> <span class="o">-</span> <span class="n">min10</span> <span class="o">+</span> <span class="n">bullseye</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ax</span></div>
+
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -1510,7 +1562,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1524,14 +1576,14 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">pypec 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pypec 0.1.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">pypec.iph_functions</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2021, Milan Skocic.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+    &#169; Copyright 2023 Milan Skocic.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

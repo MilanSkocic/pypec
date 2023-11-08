@@ -1,18 +1,16 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pypec.Analyse_PEC &#8212; pypec 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
+    <title>pypec.Analyse_PEC &#8212; pypec 0.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=514cf933" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -26,7 +24,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">pypec 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pypec 0.1.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">pypec.Analyse_PEC</a></li> 
       </ul>
@@ -95,8 +93,10 @@
                    <span class="s1">&#39;Update every&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
 
 
-<div class="viewcode-block" id="Analyse_PEC"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC">[docs]</a><span class="k">class</span> <span class="nc">Analyse_PEC</span><span class="p">(</span><span class="n">Frame</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Analyse_PEC">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC">[docs]</a>
+<span class="k">class</span> <span class="nc">Analyse_PEC</span><span class="p">(</span><span class="n">Frame</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Graphical front end for fitting Iph spectra.</span>
 
@@ -693,8 +693,10 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_on_profile</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Analyse_PEC.update_nb_runs"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.update_nb_runs">[docs]</a>    <span class="k">def</span> <span class="nf">update_nb_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Analyse_PEC.update_nb_runs">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.update_nb_runs">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_nb_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        </span>
 <span class="sd">        Update the number of cpu and run per process on the graphical interface.</span>
 
@@ -712,17 +714,23 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">remove_fit_lines</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">create_fit_lines</span><span class="p">()</span></div>
 
+
     <span class="k">def</span> <span class="nf">_update_polling_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">polling_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polling_time_IntVar</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Analyse_PEC.update_nb_fit_in_run"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.update_nb_fit_in_run">[docs]</a>    <span class="k">def</span> <span class="nf">update_nb_fit_in_run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Analyse_PEC.update_nb_fit_in_run">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.update_nb_fit_in_run">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_nb_fit_in_run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">Evol_Graph</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">NB_Fit_in_Run</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_legend</span><span class="p">(</span><span class="n">axes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Iph_Graph</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_legend</span><span class="p">(</span><span class="n">axes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Iph_true_Graph</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.update_legend"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.update_legend">[docs]</a>    <span class="k">def</span> <span class="nf">update_legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.update_legend">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.update_legend">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">):</span>
 
         <span class="n">progress</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_progress</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">fit</span><span class="p">)</span>
         <span class="n">lines</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">get_lines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
@@ -738,7 +746,10 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">update_figure</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.get_progress"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.get_progress">[docs]</a>    <span class="k">def</span> <span class="nf">get_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.get_progress">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.get_progress">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 
         <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">NB_Fit_in_Run</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_per_process</span>
         <span class="n">current</span> <span class="o">=</span> <span class="n">fit</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">NB_Fit_in_Run</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="n">run</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -746,13 +757,19 @@
 
         <span class="k">return</span> <span class="n">progress</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.on_stop_button"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.on_stop_button">[docs]</a>    <span class="k">def</span> <span class="nf">on_stop_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.on_stop_button">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.on_stop_button">[docs]</a>
+    <span class="k">def</span> <span class="nf">on_stop_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">for</span> <span class="n">worker</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">workers</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">worker</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
                 <span class="n">worker</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.Fit_cb"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.Fit_cb">[docs]</a>    <span class="k">def</span> <span class="nf">Fit_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.Fit_cb">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.Fit_cb">[docs]</a>
+    <span class="k">def</span> <span class="nf">Fit_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flag_prm</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">flag_data</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dirpath</span> <span class="o">=</span> <span class="n">tkFileDialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Choose folder for saving results&#39;</span><span class="p">,</span>
@@ -852,12 +869,18 @@
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">flag_data</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
                 <span class="n">tkMessageBox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Data Values&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s1">&#39;Data Values were not loaded.&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.remove_fit_folder"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.remove_fit_folder">[docs]</a>    <span class="k">def</span> <span class="nf">remove_fit_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.remove_fit_folder">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.remove_fit_folder">[docs]</a>
+    <span class="k">def</span> <span class="nf">remove_fit_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fit_folder</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">win_Fit1</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.on_Run_Fit"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.on_Run_Fit">[docs]</a>    <span class="k">def</span> <span class="nf">on_Run_Fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.on_Run_Fit">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.on_Run_Fit">[docs]</a>
+    <span class="k">def</span> <span class="nf">on_Run_Fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">remove_fit_lines</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">create_fit_lines</span><span class="p">()</span>
@@ -910,7 +933,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">process_queue</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">on_start_workers</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.remove_fit_lines"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.remove_fit_lines">[docs]</a>    <span class="k">def</span> <span class="nf">remove_fit_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.remove_fit_lines">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.remove_fit_lines">[docs]</a>
+    <span class="k">def</span> <span class="nf">remove_fit_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iph_Graph_fit_lines</span><span class="p">:</span>
             <span class="n">line</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
@@ -925,7 +951,10 @@
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Im_Graph_fit_lines</span><span class="p">:</span>
             <span class="n">line</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.create_fit_lines"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.create_fit_lines">[docs]</a>    <span class="k">def</span> <span class="nf">create_fit_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.create_fit_lines">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.create_fit_lines">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_fit_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">Iph_Graph_fit_lines</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Iph_true_Graph_fit_lines</span> <span class="o">=</span> <span class="p">[]</span>
@@ -962,7 +991,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">update_legend</span><span class="p">(</span><span class="n">axes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Iph_Graph</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_legend</span><span class="p">(</span><span class="n">axes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Iph_true_Graph</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.on_start_workers"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.on_start_workers">[docs]</a>    <span class="k">def</span> <span class="nf">on_start_workers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.on_start_workers">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.on_start_workers">[docs]</a>
+    <span class="k">def</span> <span class="nf">on_start_workers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">start_processes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">workers</span><span class="p">)</span>
 
@@ -970,7 +1002,10 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">running_flag</span> <span class="o">=</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.process_queue"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.process_queue">[docs]</a>    <span class="k">def</span> <span class="nf">process_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.process_queue">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.process_queue">[docs]</a>
+    <span class="k">def</span> <span class="nf">process_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="c1"># poll the queue while the stopped_process counter is lower than the number of cpu_to_use</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopped_process</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_to_use</span><span class="p">:</span>
@@ -1009,7 +1044,10 @@
                 <span class="n">plot_process</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">False</span>
                 <span class="n">plot_process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.on_hv_limits"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.on_hv_limits">[docs]</a>    <span class="k">def</span> <span class="nf">on_hv_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.on_hv_limits">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.on_hv_limits">[docs]</a>
+    <span class="k">def</span> <span class="nf">on_hv_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
 
         <span class="c1"># check if the lower and upper limits are identical</span>
         <span class="c1"># if identical, shift both limits by 0.1 eV.</span>
@@ -1042,6 +1080,7 @@
         <span class="c1"># self._on_weight_type()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">plot_ligne_V</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_figure</span><span class="p">()</span></div>
+
 
     <span class="k">def</span> <span class="nf">_on_K_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
@@ -1148,7 +1187,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">alloy_entry</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;disabled&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alloy_id_entry</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;disabled&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Analyse_PEC.prm_binary"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.prm_binary">[docs]</a>    <span class="k">def</span> <span class="nf">prm_binary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Analyse_PEC.prm_binary">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.prm_binary">[docs]</a>
+    <span class="k">def</span> <span class="nf">prm_binary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">suffix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Nb_SC</span><span class="o">.</span><span class="n">get</span><span class="p">()):</span>
@@ -1158,7 +1199,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">suffix_entry_StrVar</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">suffix</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">flag_prm</span> <span class="o">=</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.AddFiles_cb"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.AddFiles_cb">[docs]</a>    <span class="k">def</span> <span class="nf">AddFiles_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.AddFiles_cb">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.AddFiles_cb">[docs]</a>
+    <span class="k">def</span> <span class="nf">AddFiles_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span> <span class="o">=</span> <span class="n">tkFileDialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Add exp File&#39;</span><span class="p">,</span>
                                                      <span class="n">defaultextension</span><span class="o">=</span><span class="s1">&#39;.dot&#39;</span><span class="p">,</span>
                                                      <span class="n">filetypes</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;dot files&#39;</span><span class="p">,</span> <span class="s1">&#39;.dot&#39;</span><span class="p">),</span>
@@ -1238,7 +1282,10 @@
                 <span class="n">ext</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="n">tkMessageBox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Import Error&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s1">&#39;Corrupted </span><span class="si">{0:s}</span><span class="s1"> File&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;*.&#39;</span> <span class="o">+</span> <span class="n">ext</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.plot_ligne_V"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.plot_ligne_V">[docs]</a>    <span class="k">def</span> <span class="nf">plot_ligne_V</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.plot_ligne_V">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.plot_ligne_V">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_ligne_V</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Lim_Iph</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Lim_Iph_true</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Lim_Phi</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
@@ -1251,6 +1298,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">Lim_Re</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Re_Graph</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hv_start</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">hv_end</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">update_figure</span><span class="p">()</span></div>
+
 
     <span class="k">def</span> <span class="nf">_on_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
@@ -1342,7 +1390,9 @@
             <span class="n">tkMessageBox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Value Error&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s1">&#39;The absolute error cannot be equal to 0.0&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_on_weight_type</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Analyse_PEC.plot_Re_Im"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.plot_Re_Im">[docs]</a>    <span class="k">def</span> <span class="nf">plot_Re_Im</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Analyse_PEC.plot_Re_Im">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.plot_Re_Im">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_Re_Im</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hv_all</span>
 
@@ -1370,7 +1420,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Phi_Graph</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Re_Graph</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.plot_Graph"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.plot_Graph">[docs]</a>    <span class="k">def</span> <span class="nf">plot_Graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.plot_Graph">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.plot_Graph">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_Graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hv_all</span>
         <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iphB_exp_complex_all</span><span class="p">)</span>
@@ -1422,7 +1475,10 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">update_figure</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.plot_fit_lines"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.plot_fit_lines">[docs]</a>    <span class="k">def</span> <span class="nf">plot_fit_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.plot_fit_lines">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.plot_fit_lines">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_fit_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
 
         <span class="n">name</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="n">fit_nb</span> <span class="o">=</span> <span class="n">args</span>
 
@@ -1476,13 +1532,20 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">Iph_true_Graph</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_figure</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.autoscale"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.autoscale">[docs]</a>    <span class="k">def</span> <span class="nf">autoscale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chart</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.autoscale">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.autoscale">[docs]</a>
+    <span class="k">def</span> <span class="nf">autoscale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chart</span><span class="p">):</span>
         <span class="n">chart</span><span class="o">.</span><span class="n">set_autoscale_on</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">chart</span><span class="o">.</span><span class="n">relim</span><span class="p">()</span>
         <span class="n">chart</span><span class="o">.</span><span class="n">autoscale_view</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.update_figure"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.update_figure">[docs]</a>    <span class="k">def</span> <span class="nf">update_figure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.update_figure">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.update_figure">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_figure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
+
 
     <span class="k">def</span> <span class="nf">_set_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
@@ -1492,20 +1555,29 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">Nb_SC</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prm_init</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prm_binary</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Analyse_PEC.start"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Analyse_PEC.start">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.start">[docs]</a>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">mp</span><span class="o">.</span><span class="n">set_start_method</span><span class="p">(</span><span class="s2">&quot;spawn&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Analyse_PEC.ask_quit"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.ask_quit">[docs]</a>    <span class="k">def</span> <span class="nf">ask_quit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Analyse_PEC.ask_quit">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.Analyse_PEC.ask_quit">[docs]</a>
+    <span class="k">def</span> <span class="nf">ask_quit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_flag</span><span class="p">:</span>
             <span class="n">tkMessageBox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s1">&#39;Warning&#39;</span><span class="p">,</span> <span class="s1">&#39;You must stop the running fit before closing down the application.&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">tkMessageBox</span><span class="o">.</span><span class="n">askyesno</span><span class="p">(</span><span class="s2">&quot;Exit&quot;</span><span class="p">,</span> <span class="s2">&quot;Do you want to quit the application?&quot;</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
+</div>
 
 
-<div class="viewcode-block" id="ParameterWindow"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ParameterWindow">[docs]</a><span class="k">class</span> <span class="nc">ParameterWindow</span><span class="p">(</span><span class="n">Toplevel</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ParameterWindow">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ParameterWindow">[docs]</a>
+<span class="k">class</span> <span class="nc">ParameterWindow</span><span class="p">(</span><span class="n">Toplevel</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">prm_init</span><span class="p">,</span> <span class="n">last_prm_folder</span><span class="p">):</span>
         <span class="n">Toplevel</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
@@ -1535,11 +1607,17 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">initial_focus</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wait_window</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ParameterWindow.get_prm"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ParameterWindow.get_prm">[docs]</a>    <span class="k">def</span> <span class="nf">get_prm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ParameterWindow.get_prm">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ParameterWindow.get_prm">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_prm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameter_frame</span><span class="o">.</span><span class="n">prm</span></div>
 
-<div class="viewcode-block" id="ParameterWindow.get_paths"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ParameterWindow.get_paths">[docs]</a>    <span class="k">def</span> <span class="nf">get_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ParameterWindow.get_paths">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ParameterWindow.get_paths">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameter_frame</span><span class="o">.</span><span class="n">path_prm_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameter_frame</span><span class="o">.</span><span class="n">last_prm_folder</span></div>
+
 
     <span class="k">def</span> <span class="nf">_quit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameter_frame</span><span class="o">.</span><span class="n">_update_prm_values</span><span class="p">()</span>
@@ -1547,7 +1625,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="ScrolledFrame"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ScrolledFrame">[docs]</a><span class="k">class</span> <span class="nc">ScrolledFrame</span><span class="p">(</span><span class="n">Frame</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ScrolledFrame">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ScrolledFrame">[docs]</a>
+<span class="k">class</span> <span class="nc">ScrolledFrame</span><span class="p">(</span><span class="n">Frame</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="n">Frame</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">)</span>
@@ -1612,7 +1693,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">scrollregion</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bbox</span><span class="p">(</span><span class="n">ALL</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="ParameterTable"><a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ParameterTable">[docs]</a><span class="k">class</span> <span class="nc">ParameterTable</span><span class="p">(</span><span class="n">ScrolledFrame</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ParameterTable">
+<a class="viewcode-back" href="../../api/codedoc.html#pypec.Analyse_PEC.ParameterTable">[docs]</a>
+<span class="k">class</span> <span class="nc">ParameterTable</span><span class="p">(</span><span class="n">ScrolledFrame</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">prm</span><span class="p">,</span> <span class="n">last_prm_folder</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="n">ScrolledFrame</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1832,6 +1916,7 @@
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">prm_wdg_vbl</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">check_all_Eg_vbl</span><span class="o">.</span><span class="n">get</span><span class="p">())</span></div>
+
 </pre></div>
 
             <div class="clearer"></div>
@@ -1849,7 +1934,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1863,14 +1948,14 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">pypec 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pypec 0.1.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">pypec.Analyse_PEC</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2021, Milan Skocic.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+    &#169; Copyright 2023 Milan Skocic.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>
