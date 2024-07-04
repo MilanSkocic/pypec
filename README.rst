@@ -23,6 +23,6 @@ See ``requirements.txt``.
 License information
 ===========================
 
-See ``LICENSE.txt`` for information on the history of this
+See ``LICENSE`` for information on the history of this
 software, terms & conditions for usage, and a DISCLAIMER OF ALL
 WARRANTIES.

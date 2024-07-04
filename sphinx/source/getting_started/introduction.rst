@@ -29,4 +29,4 @@ Dependencies
 License
 ==========
 
-:download:`MIT <../../../LICENSE.txt>`
+:download:`MIT <../../../LICENSE>`
